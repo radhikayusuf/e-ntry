@@ -166,7 +166,7 @@ public class MainView extends javax.swing.JFrame implements EntryButtonCallback{
 
         jLabel3.setText("user : root");
 
-        jLabel4.setText("pass : ");
+        jLabel4.setText("pass : password ");
 
         jLabel8.setText("*bisa di ganti di file BaseModel line 26");
 
@@ -207,7 +207,7 @@ public class MainView extends javax.swing.JFrame implements EntryButtonCallback{
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel8))
         );
