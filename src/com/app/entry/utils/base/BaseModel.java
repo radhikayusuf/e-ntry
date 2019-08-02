@@ -23,7 +23,7 @@ import java.util.logging.Logger;
  */
 public abstract class BaseModel {
     
-    protected Connection mConnection = ConnectionBuilder.with("root", "password", "db_entry").isDisableSsl(true).create();
+    protected Connection mConnection = ConnectionBuilder.with("root", "", "db_entry").isDisableSsl(true).create();
     protected String tableName;
     
     public BaseModel(String tableName){

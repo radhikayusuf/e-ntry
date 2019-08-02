@@ -205,9 +205,10 @@ public class ManageAntrianView extends BaseView<ManageAntrianController> impleme
             }
         });
 
-        buttonHome.setBackground(new java.awt.Color(153, 153, 153));
+        buttonHome.setBackground(new java.awt.Color(0, 0, 0));
         buttonHome.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 4, 0, new java.awt.Color(255, 0, 51)));
 
+        jLabel4.setBackground(new java.awt.Color(0, 0, 0));
         jLabel4.setFont(new java.awt.Font("Lato", 0, 13)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -227,7 +228,7 @@ public class ManageAntrianView extends BaseView<ManageAntrianController> impleme
                 .addContainerGap())
         );
 
-        buttonAction.setBackground(new java.awt.Color(153, 153, 153));
+        buttonAction.setBackground(new java.awt.Color(0, 0, 0));
         buttonAction.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 4, 0, new java.awt.Color(255, 0, 51)));
 
         labelAction.setFont(new java.awt.Font("Lato", 0, 13)); // NOI18N
@@ -312,7 +313,7 @@ public class ManageAntrianView extends BaseView<ManageAntrianController> impleme
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 327, Short.MAX_VALUE)
-                                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 327, Short.MAX_VALUE))
                                     .addComponent(jLabel1))
                                 .addGap(32, 32, 32)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)

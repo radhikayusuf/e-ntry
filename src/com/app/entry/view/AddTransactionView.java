@@ -146,7 +146,7 @@ public class AddTransactionView extends BaseView<AddTransactionController> imple
         fieldHarga.setFont(new java.awt.Font("Lato", 0, 14)); // NOI18N
         fieldHarga.setEnabled(false);
 
-        buttonTambah.setBackground(new java.awt.Color(153, 153, 153));
+        buttonTambah.setBackground(new java.awt.Color(0, 0, 0));
         buttonTambah.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 4, 0, new java.awt.Color(255, 0, 51)));
 
         labelButtonTambah.setFont(new java.awt.Font("Lato", 0, 13)); // NOI18N
@@ -165,7 +165,7 @@ public class AddTransactionView extends BaseView<AddTransactionController> imple
         buttonTambahLayout.setVerticalGroup(
             buttonTambahLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, buttonTambahLayout.createSequentialGroup()
-                .addContainerGap(9, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(labelButtonTambah)
                 .addGap(9, 9, 9))
         );

@@ -8,12 +8,15 @@ package com.app.entry.view;
 import com.app.entry.utils.EntryButton;
 import com.app.entry.utils.EntryButtonCallback;
 import java.awt.Component;
+import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
 
 /**
  *
  * @author radhikayusuf
  */
 public class MainView extends javax.swing.JFrame implements EntryButtonCallback{
+    
 
     /**
      * Creates new form MainView
@@ -57,7 +60,7 @@ public class MainView extends javax.swing.JFrame implements EntryButtonCallback{
         labelTitle.setText("E-ntry Application");
         labelTitle.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(51, 51, 51)));
 
-        buttonHome.setBackground(new java.awt.Color(153, 153, 153));
+        buttonHome.setBackground(new java.awt.Color(0, 0, 0));
         buttonHome.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 4, 0, new java.awt.Color(255, 0, 51)));
 
         jLabel2.setFont(new java.awt.Font("Lato", 0, 13)); // NOI18N
@@ -76,12 +79,12 @@ public class MainView extends javax.swing.JFrame implements EntryButtonCallback{
         buttonHomeLayout.setVerticalGroup(
             buttonHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, buttonHomeLayout.createSequentialGroup()
-                .addContainerGap(9, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addGap(9, 9, 9))
         );
 
-        buttonPhotographer.setBackground(new java.awt.Color(153, 153, 153));
+        buttonPhotographer.setBackground(new java.awt.Color(0, 0, 0));
         buttonPhotographer.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 4, 0, new java.awt.Color(255, 0, 51)));
 
         jLabel5.setFont(new java.awt.Font("Lato", 0, 13)); // NOI18N
@@ -100,12 +103,12 @@ public class MainView extends javax.swing.JFrame implements EntryButtonCallback{
         buttonPhotographerLayout.setVerticalGroup(
             buttonPhotographerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, buttonPhotographerLayout.createSequentialGroup()
-                .addContainerGap(9, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel5)
                 .addGap(9, 9, 9))
         );
 
-        buttonDisplayAntrian.setBackground(new java.awt.Color(153, 153, 153));
+        buttonDisplayAntrian.setBackground(new java.awt.Color(0, 0, 0));
         buttonDisplayAntrian.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 4, 0, new java.awt.Color(255, 0, 51)));
 
         jLabel6.setFont(new java.awt.Font("Lato", 0, 13)); // NOI18N
@@ -124,12 +127,12 @@ public class MainView extends javax.swing.JFrame implements EntryButtonCallback{
         buttonDisplayAntrianLayout.setVerticalGroup(
             buttonDisplayAntrianLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, buttonDisplayAntrianLayout.createSequentialGroup()
-                .addContainerGap(9, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel6)
                 .addGap(9, 9, 9))
         );
 
-        buttonAturKaryawan.setBackground(new java.awt.Color(153, 153, 153));
+        buttonAturKaryawan.setBackground(new java.awt.Color(0, 0, 0));
         buttonAturKaryawan.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 4, 0, new java.awt.Color(255, 0, 51)));
 
         jLabel7.setFont(new java.awt.Font("Lato", 0, 13)); // NOI18N
@@ -158,7 +161,7 @@ public class MainView extends javax.swing.JFrame implements EntryButtonCallback{
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(80, 80, 80)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(buttonHome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -206,30 +209,7 @@ public class MainView extends javax.swing.JFrame implements EntryButtonCallback{
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MainView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MainView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MainView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MainView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
+        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new MainView().setVisible(true);
