@@ -78,6 +78,7 @@ public class PhotographerLoginView extends BaseView<PhotographerLoginController>
         jLabel6 = new javax.swing.JLabel();
         fieldPassword = new javax.swing.JPasswordField();
 
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("LOGIN");
         setResizable(false);
 

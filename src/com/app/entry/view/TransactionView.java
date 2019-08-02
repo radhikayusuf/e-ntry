@@ -245,13 +245,18 @@ public class TransactionView extends BaseView<TransactionController> implements 
         jPanel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 0, 51), 4, true));
 
         searchBar.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 16, 0, 16));
+        searchBar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchBarActionPerformed(evt);
+            }
+        });
         searchBar.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 searchBarKeyReleased(evt);
             }
         });
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\01.Kuliah\\4.Semester 4\\01. Provis\\lib\\magnifier.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\01.Kuliah\\4.Semester 4\\01. Provis\\e-ntry\\Images\\magnifier.png")); // NOI18N
         jLabel1.setText(" ");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -337,6 +342,10 @@ public class TransactionView extends BaseView<TransactionController> implements 
     private void searchBarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchBarKeyReleased
         mController.searchData(searchBar.getText().trim());
     }//GEN-LAST:event_searchBarKeyReleased
+
+    private void searchBarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchBarActionPerformed
 
     /**
      * @param args the command line arguments
