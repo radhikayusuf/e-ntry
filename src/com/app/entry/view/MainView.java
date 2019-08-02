@@ -52,11 +52,12 @@ public class MainView extends javax.swing.JFrame implements EntryButtonCallback{
         jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("E-NTRY");
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        labelTitle.setFont(new java.awt.Font("Lato", 0, 24)); // NOI18N
+        labelTitle.setFont(new java.awt.Font("Lato", 1, 24)); // NOI18N
         labelTitle.setText("E-ntry Application");
         labelTitle.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(51, 51, 51)));
 

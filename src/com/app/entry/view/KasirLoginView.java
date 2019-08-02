@@ -88,7 +88,6 @@ public class KasirLoginView extends BaseView<KasirLoginController> implements En
         jLabel6 = new javax.swing.JLabel();
         fieldPassword = new javax.swing.JPasswordField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));

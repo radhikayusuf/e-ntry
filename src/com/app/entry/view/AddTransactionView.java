@@ -117,7 +117,7 @@ public class AddTransactionView extends BaseView<AddTransactionController> imple
         jLabel8 = new javax.swing.JLabel();
         comboStudio = new javax.swing.JComboBox<>();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("TAMBAH TRANSAKSI");
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));

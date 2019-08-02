@@ -149,7 +149,7 @@ public class ManageAntrianView extends BaseView<ManageAntrianController> impleme
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("CALLER");
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));

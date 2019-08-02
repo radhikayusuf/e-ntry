@@ -40,7 +40,6 @@ public class AntrianView extends BaseView<AntrianController> implements AntrianC
         jScrollPane1 = new javax.swing.JScrollPane();
         tableAntrian = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
