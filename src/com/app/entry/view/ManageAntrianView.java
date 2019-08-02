@@ -15,7 +15,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author radhikayusuf
+ * @author yongkiagustin
  */
 public class ManageAntrianView extends BaseView<ManageAntrianController> implements ManageAntrianController.ManageAntrianContract, EntryButtonCallback {
 
@@ -72,8 +72,7 @@ public class ManageAntrianView extends BaseView<ManageAntrianController> impleme
         labelJenisPaket.setText("-");
         
         String[] result = mController.getStatusAntrian(studioId);
-        buttonAction.setVisible(result.length > 0);
-        buttonHome.setVisible(result.length > 0);
+        buttonAction.setVisible(result.length > 0);        
         
         if(result.length > 0){
             labelProsesAntrian.setText("Antrian dalam Proses : No." + result[2]);
@@ -139,8 +138,6 @@ public class ManageAntrianView extends BaseView<ManageAntrianController> impleme
         jScrollPane1 = new javax.swing.JScrollPane();
         tableAntrian = new javax.swing.JTable();
         comboStudio = new javax.swing.JComboBox<>();
-        buttonHome = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
         buttonAction = new javax.swing.JPanel();
         labelAction = new javax.swing.JLabel();
         btnBack = new javax.swing.JLabel();
@@ -148,8 +145,9 @@ public class ManageAntrianView extends BaseView<ManageAntrianController> impleme
         searchBar = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        comboSearch = new javax.swing.JComboBox<>();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("CALLER");
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -205,29 +203,7 @@ public class ManageAntrianView extends BaseView<ManageAntrianController> impleme
             }
         });
 
-        buttonHome.setBackground(new java.awt.Color(153, 153, 153));
-        buttonHome.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 4, 0, new java.awt.Color(255, 0, 51)));
-
-        jLabel4.setFont(new java.awt.Font("Lato", 0, 13)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("PANGGIL");
-
-        javax.swing.GroupLayout buttonHomeLayout = new javax.swing.GroupLayout(buttonHome);
-        buttonHome.setLayout(buttonHomeLayout);
-        buttonHomeLayout.setHorizontalGroup(
-            buttonHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        buttonHomeLayout.setVerticalGroup(
-            buttonHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, buttonHomeLayout.createSequentialGroup()
-                .addContainerGap(12, Short.MAX_VALUE)
-                .addComponent(jLabel4)
-                .addContainerGap())
-        );
-
-        buttonAction.setBackground(new java.awt.Color(153, 153, 153));
+        buttonAction.setBackground(new java.awt.Color(0, 0, 0));
         buttonAction.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 4, 0, new java.awt.Color(255, 0, 51)));
 
         labelAction.setFont(new java.awt.Font("Lato", 0, 13)); // NOI18N
@@ -239,7 +215,7 @@ public class ManageAntrianView extends BaseView<ManageAntrianController> impleme
         buttonAction.setLayout(buttonActionLayout);
         buttonActionLayout.setHorizontalGroup(
             buttonActionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(labelAction, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(labelAction, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
         );
         buttonActionLayout.setVerticalGroup(
             buttonActionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -272,8 +248,7 @@ public class ManageAntrianView extends BaseView<ManageAntrianController> impleme
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(searchBar, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(searchBar))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -286,6 +261,13 @@ public class ManageAntrianView extends BaseView<ManageAntrianController> impleme
         jLabel1.setText("Antrian Selanjutnya : ");
 
         jLabel2.setText("Antrian Yang sedang di proses : ");
+
+        comboSearch.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nama", "Studio", "Antrian", "Paket" }));
+        comboSearch.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                comboSearchItemStateChanged(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -309,16 +291,17 @@ public class ManageAntrianView extends BaseView<ManageAntrianController> impleme
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel1)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(comboSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 327, Short.MAX_VALUE)
-                                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                                    .addComponent(jLabel1))
-                                .addGap(32, 32, 32)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(buttonAction, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(buttonHome, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(comboStudio, 0, 135, Short.MAX_VALUE))))
+                                    .addComponent(buttonAction, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(comboStudio, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(20, 20, 20))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -334,18 +317,18 @@ public class ManageAntrianView extends BaseView<ManageAntrianController> impleme
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(comboStudio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(16, 16, 16)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(buttonHome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(buttonAction, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(16, 16, 16)
                         .addComponent(jLabel1)
                         .addGap(16, 16, 16)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(comboStudio, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(buttonAction, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(comboSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
@@ -372,7 +355,7 @@ public class ManageAntrianView extends BaseView<ManageAntrianController> impleme
     private void searchBarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchBarKeyReleased
         if(!studioId.isEmpty() && !currentQueueId.isEmpty()){
             clearModel(tableModel);
-            mController.searchDataAntrian(studioId, currentQueueId, searchBar.getText()).forEach((data)-> {                
+            mController.searchDataAntrian(studioId, currentQueueId, searchBar.getText(), comboSearch.getSelectedIndex()).forEach((data)-> {                
                 tableModel.addRow(data);              
             });                        
         }
@@ -385,6 +368,15 @@ public class ManageAntrianView extends BaseView<ManageAntrianController> impleme
             loadData();
         }        
     }//GEN-LAST:event_comboStudioItemStateChanged
+
+    private void comboSearchItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comboSearchItemStateChanged
+        if(!studioId.isEmpty() && !currentQueueId.isEmpty()){
+            clearModel(tableModel);
+            mController.searchDataAntrian(studioId, currentQueueId, searchBar.getText(), comboSearch.getSelectedIndex()).forEach((data)-> {                
+                tableModel.addRow(data);              
+            });                        
+        }
+    }//GEN-LAST:event_comboSearchItemStateChanged
 
     
     private void clearModel(DefaultTableModel model){
@@ -432,11 +424,10 @@ public class ManageAntrianView extends BaseView<ManageAntrianController> impleme
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel btnBack;
     private javax.swing.JPanel buttonAction;
-    private javax.swing.JPanel buttonHome;
+    private javax.swing.JComboBox<String> comboSearch;
     private javax.swing.JComboBox<String> comboStudio;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

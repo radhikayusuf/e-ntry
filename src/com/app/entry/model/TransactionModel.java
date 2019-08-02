@@ -25,11 +25,29 @@ public class TransactionModel extends BaseModel {
     }
     
     
-    public List<Object[]> getDataTransaction(String searchKey){
+    public List<Object[]> getDataTransaction(String searchKey, String fieldName){
         List<Object[]> data = new ArrayList<>();
         try {
-            String sql = "CALL searchInTransaction('%"+searchKey+"%');";           
+            String sql = "SELECT \n" +
+"        tb_transaksi.id_transaksi as `ID`, \n" +
+"        tb_user.nama_user as `Nama Konsumen`, \n" +
+"        tb_transaksi.jenis_paket as `Jenis Paket`, \n" +
+"        tb_user.no_telp as `No Telpon`, \n" +
+"        tb_antrian.jumlah_orang as `Jumlah Orang`,\n" +
+"        tb_antrian.no_antrian as `No Antrian`,\n" +
+"        tb_studio.nama_studio as `Studio` \n" +
+"    FROM tb_transaksi\n" +
+"    INNER JOIN tb_user ON tb_transaksi.id_user = tb_user.id_user\n" +
+"    INNER JOIN tb_antrian ON tb_transaksi.id_transaksi = tb_antrian.id_transaksi\n" +
+"    INNER JOIN tb_studio ON tb_antrian.id_studio = tb_studio.id_studio\n";           
 
+            
+            if(!searchKey.isEmpty() && !fieldName.isEmpty()){
+                
+                sql += " WHERE "+ fieldName+" LIKE '%"+searchKey+"%';";                
+            }
+            
+            System.out.println(sql);
             java.sql.Connection conn = (Connection) mConnection;
             java.sql.Statement stm = conn.createStatement();
             

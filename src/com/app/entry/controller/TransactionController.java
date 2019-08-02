@@ -20,6 +20,8 @@ public class TransactionController extends BaseController<TransactionContract>{
 
     TransactionModel mModel = new TransactionModel();
     
+    String[] fieldName = new String[]{"tb_transaksi.id_transaksi", "tb_user.nama_user", "tb_transaksi.jenis_paket", "tb_user.no_telp", "tb_antrian.jumlah_orang", "tb_antrian.no_antrian", "tb_studio.nama_studio"};
+    
     
     public TransactionController(TransactionContract contract) {
         super(contract);        
@@ -27,11 +29,11 @@ public class TransactionController extends BaseController<TransactionContract>{
     } 
     
     public void getContentData(){
-        mContract.onDataLoaded(mModel.getDataTransaction(""));
+        mContract.onDataLoaded(mModel.getDataTransaction("", ""));
     }
     
-    public void searchData(String searchQuery){
-        mContract.onDataLoaded(mModel.getDataTransaction(searchQuery));
+    public void searchData(String searchQuery, int fieldPosition){
+        mContract.onDataLoaded(mModel.getDataTransaction(searchQuery, fieldName[fieldPosition]));
     }
 
     public void deleteData(String id) {
@@ -39,7 +41,7 @@ public class TransactionController extends BaseController<TransactionContract>{
         mContract.showMessage(result.getMessage());
         
         if(result.isSuccess()){
-            mContract.onDataLoaded(mModel.getDataTransaction(""));
+            mContract.onDataLoaded(mModel.getDataTransaction("", ""));
         }
     }
     

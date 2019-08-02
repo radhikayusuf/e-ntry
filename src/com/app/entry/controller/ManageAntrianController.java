@@ -20,6 +20,7 @@ import java.util.List;
 public class ManageAntrianController extends BaseController<ManageAntrianContract>{
 
     ManageAntrianModel mModel = new ManageAntrianModel();
+        String[] fieldName = new String[]{"tb_user.nama_user", "tb_studio.nama_studio", "tb_antrian.no_antrian", "tb_transaksi.jenis_paket"};
     
     public ManageAntrianController(ManageAntrianContract contract) {
         super(contract);
@@ -30,11 +31,11 @@ public class ManageAntrianController extends BaseController<ManageAntrianContrac
     }   
     
     public List<Object[]> getDataAntrian(String idStudio, String latestId) {
-        return mModel.getDataQueue(idStudio, latestId, "");
+        return mModel.getDataQueue(idStudio, latestId, "", "");
     }
     
-    public List<Object[]> searchDataAntrian(String idStudio, String latestId, String query) {
-        return mModel.getDataQueue(idStudio, latestId, query);
+    public List<Object[]> searchDataAntrian(String idStudio, String latestId, String query, int fieldPosition) {
+        return mModel.getDataQueue(idStudio, latestId, query, fieldName[fieldPosition]);
     }
     
     public String[] getStatusAntrian(String idAntrian){

@@ -13,7 +13,7 @@ import javax.swing.table.TableModel;
 
 /**
  *
- * @author radhikayusuf
+ * @author yongkiagustin
  */
 public class AntrianView extends BaseView<AntrianController> implements AntrianController.AntrianContract{
 
@@ -41,6 +41,7 @@ public class AntrianView extends BaseView<AntrianController> implements AntrianC
         tableAntrian = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("DISPLAY ANTRIAN");
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));

@@ -25,10 +25,25 @@ public class ManageAntrianModel extends BaseModel{
         super("tb_antrian");
     }
     
-    public List<Object[]> getDataQueue(String idAntrian, String latestId, String searchKey){
+    public List<Object[]> getDataQueue(String idStudio, String latestId, String searchKey, String fieldName){
         List<Object[]> data = new ArrayList<>();
-        try {
-            String sql = "CALL listQueueByStudio("+idAntrian+", "+latestId+", '%"+searchKey+"%');";           
+        
+        String coditionSql = " AND "+fieldName+" LIKE '%"+searchKey+"%' \n";
+        
+        try {            
+            String sql = "SELECT \n" +
+"        `tb_studio`.`nama_studio` as `Nama Studio`,\n" +
+"        `tb_user`.`nama_user` as `Nama Customer`,\n" +
+"        `tb_antrian`.`no_antrian` as `Nomor Antrian`,\n" +
+"        `tb_transaksi`.`jenis_paket` as `Jenis Paket`    \n" +
+"           FROM tb_antrian \n" +
+"           INNER JOIN tb_studio ON tb_antrian.id_studio = tb_studio.id_studio\n" +
+"           INNER JOIN tb_transaksi ON tb_transaksi.id_transaksi = tb_antrian.id_transaksi\n" +
+"           INNER JOIN tb_user ON tb_transaksi.id_user = tb_user.id_user\n" +
+"           WHERE tb_studio.id_studio = "+idStudio+" AND\n" +
+"           tb_antrian.id_antrian != "+latestId+" AND\n" +
+"           tb_antrian.is_done = 0 " + (!searchKey.isEmpty() && !fieldName.isEmpty() ? coditionSql : "") + 
+"           ORDER BY tb_antrian.id_antrian ASC;";
 
             java.sql.Connection conn = (Connection) mConnection;
             java.sql.Statement stm = conn.createStatement();

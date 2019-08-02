@@ -34,7 +34,7 @@ public class KasirLoginController extends BaseController<KasirLoginContract> {
         
         
         if(mModel.doLogin(username, password)){
-            mContract.showMessage("Welcome");
+            mContract.showMessage("Berhasil Login!");
             mContract.onLoginSuccess();
         } else {
             mContract.showMessage("Username atau Password salah!");

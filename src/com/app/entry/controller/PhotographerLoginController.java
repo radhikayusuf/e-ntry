@@ -33,7 +33,7 @@ public class PhotographerLoginController extends BaseController<PhotographerLogi
         }
         
         if(mModel.doLogin(username, password)){
-            mContract.showMessage("Welcome");
+            mContract.showMessage("Berhasil Login!");
             mContract.onLoginSuccess();
         } else {
             mContract.showMessage("Username atau Password salah!");
