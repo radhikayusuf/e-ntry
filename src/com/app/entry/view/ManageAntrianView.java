@@ -15,7 +15,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author radhikayusuf
+ * @author yongkiagustin
  */
 public class ManageAntrianView extends BaseView<ManageAntrianController> implements ManageAntrianController.ManageAntrianContract, EntryButtonCallback {
 

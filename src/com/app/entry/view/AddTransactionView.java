@@ -13,7 +13,7 @@ import javax.swing.JFrame;
 
 /**
  *
- * @author radhikayusuf
+ * @author yongkiagustin
  */
 public class AddTransactionView extends BaseView<AddTransactionController> implements EntryButtonCallback, AddTransactionController.AddTrasactionContract {
 

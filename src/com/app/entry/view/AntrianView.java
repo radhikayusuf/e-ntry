@@ -13,7 +13,7 @@ import javax.swing.table.TableModel;
 
 /**
  *
- * @author radhikayusuf
+ * @author yongkiagustin
  */
 public class AntrianView extends BaseView<AntrianController> implements AntrianController.AntrianContract{
 

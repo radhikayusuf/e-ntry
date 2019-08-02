@@ -21,7 +21,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author radhikayusuf
+ * @author yongkiagustin
  */
 public class TransactionView extends BaseView<TransactionController> implements TransactionController.TransactionContract, EntryButtonCallback {
 

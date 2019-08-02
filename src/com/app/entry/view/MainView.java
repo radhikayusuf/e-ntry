@@ -13,7 +13,7 @@ import javax.swing.UIManager;
 
 /**
  *
- * @author radhikayusuf
+ * @author yongkiagustin
  */
 public class MainView extends javax.swing.JFrame implements EntryButtonCallback{
     
