@@ -9,8 +9,6 @@ package com.app.entry.utils.base;
  *
  * @author radhikayusuf
  */
-public interface BaseContract {
-                
-    void showMessage(String message);
-    
+public interface BaseContract {               
+    void showMessage(String message);   
 }

@@ -12,13 +12,9 @@ import com.app.entry.view.MainView;
  * @author radhikayusuf
  */
 public class EntryApplication {
-       
+    public static int ID_KASIR = 0;  
     public static void main(String[] args){
         MainView mainView = new MainView();
         mainView.setVisible(true);
-    }
-    
-    
-    public static int ID_KASIR = 0;
-    
+    }    
 }

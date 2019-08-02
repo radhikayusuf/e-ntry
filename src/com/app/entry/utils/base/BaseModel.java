@@ -29,8 +29,7 @@ public abstract class BaseModel {
     public BaseModel(String tableName){
         this.tableName = tableName;
     }
-    
-    
+        
     public ResultSet getData(){
         
         try {            
@@ -63,7 +62,6 @@ public abstract class BaseModel {
         }
     }
       
-    
     public List<String[]> getStudio(){
         try {
             String sql = "SELECT `id_studio` as `id`, `nama_studio` as `Nama Studio`FROM tb_studio WHERE id_photographer IS NOT NULL;";
